@@ -12,7 +12,6 @@ public class BaseTest {
     public void setUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://example.com"); // Replace with your actual test URL
     }
 
     @AfterMethod
