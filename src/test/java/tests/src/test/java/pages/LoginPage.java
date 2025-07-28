@@ -1,31 +1,18 @@
-package pages;
+package tests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
+import pages.LoginPage;
+import utils.BaseTest;
 
-public class LoginPage {
-    WebDriver driver;
+public class LoginTest extends BaseTest {
 
-    // Locators
-    By usernameField = By.id("username");
-    By passwordField = By.id("password");
-    By loginButton = By.id("login");
+    @Test
+    public void testLogin() {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.enterUsername("testuser");
+        loginPage.enterPassword("testpass");
+        loginPage.clickLogin();
 
-    // Constructor
-    public LoginPage(WebDriver driver) {
-        this.driver = driver;
-    }
-
-    // Actions
-    public void enterUsername(String username) {
-        driver.findElement(usernameField).sendKeys(username);
-    }
-
-    public void enterPassword(String password) {
-        driver.findElement(passwordField).sendKeys(password);
-    }
-
-    public void clickLogin() {
-        driver.findElement(loginButton).click();
+        System.out.println("Login test executed using Page Object Model");
     }
 }
