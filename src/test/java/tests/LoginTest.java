@@ -1,11 +1,18 @@
 package tests;
 
 import org.testng.annotations.Test;
+import pages.LoginPage;
+import utils.BaseTest;
 
-public class LoginTest {
+public class LoginTest extends BaseTest {
+
     @Test
     public void testLogin() {
-        System.out.println("Login test executed");
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.enterUsername("testuser");
+        loginPage.enterPassword("testpass");
+        loginPage.clickLogin();
+
+        System.out.println("Login test executed using Page Object Model");
     }
 }
-    
